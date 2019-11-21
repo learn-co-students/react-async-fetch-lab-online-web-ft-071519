@@ -4,7 +4,7 @@ class App extends React.Component {
 
 
     state =  {
-        fetchData: []
+        persons: []
     }
     
     componentDidMount(){
@@ -12,17 +12,25 @@ class App extends React.Component {
         .then(resp => resp.json())
         .then(resp => {
             this.setState({
-                fetchData: resp.people
-
+                persons: resp.people
             })
+        
         })
+    }
 
+    renderPersons = () => {
+        console.log(this.state.persons)
+        this.state.persons.map(person => {
+            console.log(person)
+            console.log(person.name)
+            return <h3>{person.name}</h3>
+        })
     }
 
     render() {
         return (
             <div>
-            
+              {this.renderPersons()}
             </div>
 
         )
