@@ -20,24 +20,19 @@ class App extends React.Component {
 
 
     // //does not work
-    // renderPersons = () => {
-    //     console.log(this.state.persons)
-    //     this.state.persons.map(person => {
-    //         console.log(person)
-    //         console.log(person.name)
-    //         return <h3 key={person.name}>{person.name}</h3>
-    //     })
-    // }
+    renderPersons = () => {
+        return this.state.persons.map(person => {
+             return <h3 key={person.name}>{person.name}</h3>
+        })
+    }
 
     render() {
         return (
             <div>
-              {/* {this.renderPersons()}  <=why this does not work?  */}
-              {this.state.persons.map(person => {
-            console.log(person)
-            console.log(person.name)
+              {this.renderPersons()}   
+              {/* {this.state.persons.map(person => {
             return <h3 key={person.name}>{person.name}</h3>
-        })}
+        })} */}
             </div>
 
         )
